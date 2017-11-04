@@ -16,7 +16,7 @@ public class HelloWorld {
         List<Rule> rulesHistory = new ArrayList<>();
         String result = inferenceLoop(facts, rules, rulesHistory);
         System.out.println(result);
-        System.out.println(rulesHistory.isEmpty() ? "Did not run any rules" : "Rules: ");
+        System.out.println(rulesHistory.isEmpty() ? "Did not run any rules" : "Rule history: ");
         rulesHistory.stream().forEach(rule -> System.out.println(rule.toString()));
     }
 
