@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Rule {
 
@@ -17,8 +18,18 @@ public class Rule {
     }
 
 
+    public boolean matches(List<String> facts){
+        //Hay que revisar esto TODO
+        //Si todas las condiciones estan contenidas en los hechos, entonces matchea
+        return conditions.stream().allMatch(condition -> facts.contains(condition));
+    }
+
     public String run(){
-        //TODO
-        return "";
+        return result;
+    }
+
+    @Override
+    public String toString(){
+        return conditions.stream().collect(Collectors.joining(", ")) + " -> " + result;
     }
 }
