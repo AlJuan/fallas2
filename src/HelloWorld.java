@@ -25,8 +25,7 @@ public class HelloWorld {
         List<Rule> matchingRules = findMatchingRules(facts, rules, rulesHistory);
         String result = "no result found";
         while (!matchingRules.isEmpty()){
-            //Choose R1 "Primera regla dispara"
-            Rule rule = matchingRules.get(0);
+            Rule rule = selectRuleToRun(matchingRules);
             result = rule.run();
             rulesHistory.add(rule);
             facts.add(result);
@@ -34,6 +33,11 @@ public class HelloWorld {
         }
 
         return result;
+    }
+
+    private static Rule selectRuleToRun(List<Rule> matchingRules) {
+        //Choose R1 "Primera regla dispara"
+        return matchingRules.get(0);
     }
 
     private static List<Rule> buildRules() {
